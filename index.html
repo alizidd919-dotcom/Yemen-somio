@@ -1,1 +1,44 @@
-
+<!DOCTYPE html>
+<html dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>شيلات اليمن - مثل Somio</title>
+<style>
+body{background:#111;color:#fff;font-family:system-ui;text-align:center;padding:20px}
+input,button{width:95%;padding:16px;border-radius:12px;border:none;margin:10px 0;font-size:18px}
+button{background:#ff0055;color:#fff;font-weight:bold}
+#s{margin:15px}
+audio{width:95%;margin-top:20px}
+</style>
+</head>
+<body>
+<h1>🎤 صانع الشيلات</h1>
+<input id="t" placeholder="اكتب: شيلة يمنية حزينة باسم علي">
+<button onclick="go()">اصنع الأغنية</button>
+<p id="s"></p>
+<audio id="a" controls style="display:none"></audio>
+<script>
+async function go(){
+let pr=document.getElementById('t').value;
+if(!pr)return alert('اكتب كلمات الشيلة');
+document.getElementById('s').innerText='⏳ جاري الصنع... 40 ثانية';
+try{
+let res=await fetch("https://api-inference.huggingface.co/models/facebook/musicgen-small",{
+method:"POST",
+headers:{"Content-Type":"application/json"},
+body:JSON.stringify({inputs:pr})
+});
+if(!res.ok) throw new Error();
+let blob=await res.blob();
+let url=URL.createObjectURL(blob);
+let au=document.getElementById('a');
+au.src=url;au.style.display='block';
+document.getElementById('s').innerText='✅ تمت! اضغط تشغيل';
+}catch(e){
+document.getElementById('s').innerText='⚠️ السيرفر مشغول، جرب مرة ثانية بعد دقيقة';
+}
+}
+</script>
+</body>
+</html>
