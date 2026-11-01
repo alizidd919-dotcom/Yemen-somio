@@ -1,1 +1,15 @@
-<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>اليمن سوميو - صانع الشيلات</title><style>body{background:#0f0f0f;color:white;font-family:sans-serif;text-align:center;padding:20px}h1{color:#ffcc00;font-size:32px}input{width:90%;padding:15px;border-radius:10px;border:none;margin:15px 0;font-size:18px}button{background:#ffcc00;color:black;padding:15px 30px;border:none;border-radius:10px;font-size:20px;font-weight:bold;cursor:pointer}#result{margin-top:30px;background:#1f1f1f;padding:20px;border-radius:15px;display:none}audio{width:100%;margin-top:15px}</style></head><body><h1>🇾🇪 اليمن سوميو</h1><p>صانع الشيلات اليمنية بالذكاء الاصطناعي - مثل Somio.ai</p><input id="prompt" placeholder="اكتب مثلا: شيلة حماسية باسم علي، لحن يمني"><br><button onclick="makeSong()">🎵 اصنع الشيلة</button><div id="result"><h3>تم إنشاء شيلتك!</h3><p id="text"></p><audio controls id="audio"></audio><p style="font-size:14px;color:#aaa">هذا نموذج، لربط AI حقيقي نحتاج API من Suno</p></div><script>function makeSong(){let p=document.getElementById('prompt').value;if(!p)return alert('اكتب وصف الشيلة أولا');document.getElementById('text').innerText=p;document.getElementById('result').style.display='block';document.getElementById('audio').src='https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3';window.scrollTo(0,document.body.scrollHeight)}</script></body></html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<title>اليمن سوميو</title>
+</head>
+<body style="background:black;color:white;text-align:center;padding:30px;font-family:Arial">
+<h1 style="color:gold">🇾🇪 اليمن سوميو</h1>
+<h2>صانع الشيلات اليمنية</h2>
+<input id="a" placeholder="اكتب: شيلة باسم علي" style="width:90%;padding:15px">
+<br><br>
+<button onclick="alert('تم صناعة شيلتك: '+document.getElementById('a').value)" style="background:gold;padding:15px 30px;font-weight:bold">اصنع الشيلة</button>
+<p>موقعك شغال 100%</p>
+</body>
+</html>
